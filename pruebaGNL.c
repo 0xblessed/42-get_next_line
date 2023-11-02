@@ -86,3 +86,57 @@ int main() {
 
     return 0;
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+int  ft_size_buffer()
+{
+    #ifdef BUFFER_SIZE
+        return BUFFER_SIZE;
+    #else
+        return 10;
+    #endif
+}
+
+char *inicializo_buffer()
+{
+    int k;
+    char *buffer;
+
+    k = ft_size_buffer();
+    buffer = (char *)malloc(sizeof(char) * (k + 1));
+    if(!buffer)
+        return (NULL);
+    return buffer;
+}
+
+char *get_next_line(int fd)
+{
+    //static char *guardo;
+    char    *buffer;
+    ssize_t num_bytes;
+
+    buffer = inicializo_buffer(); //falta poner el free de este buffer
+    num_bytes = read(fd, buffer, ft_size_buffer());
+}
+
+int main() {
+
+    int fd;
+
+    fd = open("pepe.txt", O_RDONLY);
+
+    if (fd == -1) {
+        perror("Error al abrir el archivo");
+        return 1;
+    }
+
+    get_next_line(fd);
+
+    close(fd);
+
+    return 0;
+}*/
